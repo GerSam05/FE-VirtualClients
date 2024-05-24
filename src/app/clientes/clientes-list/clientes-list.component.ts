@@ -37,7 +37,6 @@ export class ClientesListComponent implements OnInit {
         this.apiResponseList = response;
         if(this.apiResponseList.isSuccess){
           this.dataSource = this.apiResponseList.result;
-          console.log(this.dataSource);
         }else{
           console.log(response);
         }

@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { ApiResponseList } from '../models/api-response-list';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../models/api-response';
+import { Cliente } from '../models/cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class ClientesService {
 
   getAll(): Observable<ApiResponseList> {
     return this.http.get<ApiResponseList>(`${this.myApiUrl2}`);
+  }
+
+  postCliente(cliente: Cliente): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.myApiUrl}`, cliente);
   }
 
   deleteCliente(id: number): Observable<ApiResponse>{
