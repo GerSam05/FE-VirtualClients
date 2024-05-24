@@ -1,6 +1,6 @@
 export interface Cliente {
-  id: number;
+  id?: number;
   nombre: string;
   apellido: string;
-  estatus: number;
+  estatus: number | string;
 }

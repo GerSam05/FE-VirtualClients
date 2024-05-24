@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 445px;
+  min-width: 345px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  padding: 8px;
+}

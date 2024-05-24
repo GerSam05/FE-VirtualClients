@@ -32,7 +32,7 @@ export class ClientesListComponent implements OnInit {
   idCliente: number = 0;
 
   obtenerClientes() {
-    this._clientesService.getAll().subscribe({
+    this._clientesService.getClientes().subscribe({
       next: (response) => {
         this.apiResponseList = response;
         if(this.apiResponseList.isSuccess){

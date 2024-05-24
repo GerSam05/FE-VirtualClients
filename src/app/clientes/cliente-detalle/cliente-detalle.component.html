@@ -1,3 +1,21 @@
-<div>
-  <h4>DETALLE WORKS</h4>
+<div class="container">
+  @if (cliente != null){
+  <div class="card text-center" style="width: 18rem;">
+    <div class="card-header">
+      Información del cliente
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nombre</h5>
+      <p class="card-text">{{cliente.nombre}}</p>
+      <h5 class="card-title">Apellido</h5>
+      <p class="card-text">{{cliente.apellido}}</p>
+      <h5 class="card-title">Estatus</h5>
+      <p class="card-text">{{cliente.estatus}}</p>
+      <a href="#" class="btn btn-secondary" routerLink="/clientes">Volver</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      {{ fechaActual }}
+    </div>
+  </div>
+  }
 </div>
