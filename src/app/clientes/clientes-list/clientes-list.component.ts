@@ -1,35 +1,35 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiResponseList } from '../../core/models/api-response-list';
 import { ClientesService } from '../../core/services/clientes.service';
 import { Cliente } from '../../core/models/cliente';
-import { ErrorComponent } from '../../shared/components/error/error.component';
-// import { ConfirmarEliminarComponent } from '../../shared/components/confirmar-eliminar/confirmar-eliminar.component';
+import { FilterService } from '../../core/services/filter.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ConfirmarEliminarService } from '../../core/services/confirmar-eliminar.service';
-
+import { NombreFilterPipe } from '../../shared/pipes/nombre-filter.pipe';
 
 @Component({
   selector: 'app-clientes-list',
   standalone: true,
-  imports: [NgxPaginationModule, NgFor, RouterLink, ErrorComponent],
+  imports: [ NgxPaginationModule, NgFor, RouterLink, NombreFilterPipe ],
   templateUrl: './clientes-list.component.html',
   styleUrl: './clientes-list.component.css'
 })
 export class ClientesListComponent implements OnInit {
   constructor(private _clientesService: ClientesService,
-                private confirmationService: ConfirmarEliminarService) { }
+              private _filterService: FilterService) { }
 
   ngOnInit(): void {
     this.obtenerClientes();
+    this._filterService.filter.subscribe(filter => this.nombreFiltro = filter);
   }
 
+  idCliente: number = 0;
   apiResponseList: ApiResponseList | undefined;
   dataSource: Cliente[] = [];
+  nombreFiltro: string ='';
   p: number = 1;
-  idCliente: number = 0;
 
   obtenerClientes() {
     this._clientesService.getClientes().subscribe({

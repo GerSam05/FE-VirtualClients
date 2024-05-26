@@ -7,21 +7,21 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/clientes/">Clientes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#">Estatus</a>
+          <a class="nav-link" routerLink="/condicion/">Condición</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Opciones Avanzadas</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" [(ngModel)]="text" [ngModelOptions]="{standalone: true}" (input)="limpiarTexto()">
+        <button class="btn btn-outline-success" type="submit" (click)="filtrarTexto()">Buscar</button>
       </form>
     </div>
   </div>
