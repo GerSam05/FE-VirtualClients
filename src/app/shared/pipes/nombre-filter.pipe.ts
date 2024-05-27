@@ -11,6 +11,12 @@ export class NombreFilterPipe implements PipeTransform {
       return clientes;
     }
 
-    return clientes.filter(cliente => cliente.nombre.toLowerCase().includes(nombre.toLowerCase()));
+    const normalizedNombre = nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return clientes.filter(cliente => {
+      const normalizedClienteNombre = cliente.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return normalizedClienteNombre.toLowerCase().includes(normalizedNombre.toLowerCase());
+    });
+
+    //return clientes.filter(cliente => cliente.nombre.toLowerCase().includes(nombre.toLowerCase()));
   }
 }

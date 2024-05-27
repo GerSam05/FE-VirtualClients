@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-condicion-list',
   standalone: true,
-  imports: [],
+  imports: [  ],
   templateUrl: './condicion-list.component.html',
   styleUrl: './condicion-list.component.css'
 })

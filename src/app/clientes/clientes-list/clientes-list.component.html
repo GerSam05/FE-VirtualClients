@@ -1,34 +1,36 @@
-<div class="container-lg">
-  <button type="button" class="btn btn-primary" routerLink="agregar/">Agregar Cliente</button>
-
-  <table class="table table-striped table-hover table-bordered table-sm table-responsive">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Estatus</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cliente of dataSource | NombreFilterPipe: nombreFiltro | paginate: { itemsPerPage: 10, currentPage: p }">
-        <td>{{cliente.nombre}}</td>
-        <td>{{cliente.apellido}}</td>
-        <td>{{cliente.estatus}}</td>
-        <td>
-          <a class="icon-link" routerLink="detalle/{{ cliente.id }}">
-            <svg class="bi"></svg>Detalle
-          </a>
-          <a class="icon-link" routerLink="editar/{{ cliente.id }}">
-            <svg class="bi"></svg>Editar
-          </a>
-          <a class="icon-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="setIdCliente(cliente.id!)">
-            <svg class="bi"></svg>Eliminar
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <button type="button" class="btn btn-primary mt-3" routerLink="agregar/">Agregar Cliente</button>
+  
+  <div class="d-flex justify-content-center">
+    <table class="table table-striped table-hover table-bordered table-sm table-responsive">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Estatus</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of dataSource | NombreFilterPipe: nombreFiltro | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.apellido}}</td>
+          <td>{{cliente.estatus}}</td>
+          <td>
+            <a class="icon-link" routerLink="detalle/{{ cliente.id }}">
+              <svg class="bi"></svg>Detalle
+            </a>
+            <a class="icon-link" routerLink="editar/{{ cliente.id }}">
+              <svg class="bi"></svg>Editar
+            </a>
+            <a class="icon-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="setIdCliente(cliente.id!)">
+              <svg class="bi"></svg>Eliminar
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="d-flex justify-content-center">
     <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"

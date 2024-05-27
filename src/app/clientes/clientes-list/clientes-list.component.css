@@ -1,7 +1,9 @@
-/* Estilos opcionales para la tabla */
+.container {
+  min-height: 700px;
+}
+
 .table {
-  width: 100%;
-  min-width: 345px;
+  min-width: 350px;
   margin-top: 20px;
   margin-bottom: 20px;
   border-collapse: collapse;
@@ -12,10 +14,6 @@
 .table td {
   padding: 8px;
   border: 1px solid #ddd;
-}
-
-.btn-primary {
-  margin-top: 20px;
 }
 
 a {

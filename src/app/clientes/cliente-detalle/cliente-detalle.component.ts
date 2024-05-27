@@ -2,26 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Cliente } from '../../core/models/cliente';
 import { ClientesService } from '../../core/services/clientes.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cliente-detalle',
   standalone: true,
-  imports: [ RouterLink ],
+  imports: [ RouterLink, CommonModule ],
   templateUrl: './cliente-detalle.component.html',
   styleUrl: './cliente-detalle.component.css'
 })
 export class ClienteDetalleComponent implements OnInit {
   id: number;
   cliente!: Cliente;
-  fechaActual: Date;
+  fechaActual: Date = new Date;
 
   constructor(private aRoute: ActivatedRoute, private _clientesService: ClientesService) {
-    this.fechaActual = new Date;
     this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
   }
   
   ngOnInit(): void {
-    this.obtenerCliente()
+    this.obtenerCliente();
   }
 
   obtenerCliente() {

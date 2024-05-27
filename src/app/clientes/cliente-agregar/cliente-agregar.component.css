@@ -1,11 +1,7 @@
 .container {
-  width: 100%;
-  max-width: 445px;
-  min-width: 345px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-collapse: collapse;
-  text-align: center;
-  border: 1px solid #ddd;
-  padding: 8px;
+  min-height: 700px;
+}
+
+form {
+  min-width: 400px;
 }

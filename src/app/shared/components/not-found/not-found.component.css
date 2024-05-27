@@ -1,0 +1,6 @@
+.container-fluid {
+  min-height: 800px;
+  background-image: Url("/assets/images/lost1.jpg");
+  background-size: cover;
+  background-position: center;
+}
